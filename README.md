@@ -7,4 +7,7 @@ This docker container image leverages the work from [David Cooper](https://dtcoo
 
 ### Examples
 - docker run -d --device=/dev/snd:/dev/snd --net=host svanscho/raspotify
-- docker run -d --device=/dev/snd:/dev/snd --net=host -e SPOTIFY_NAME=docker-spotify svanscho/raspotify
+- docker run -d --device=/dev/snd:/dev/snd --net=host *-e SPOTIFY_NAME=docker-spotify* svanscho/raspotify
+
+If you want the container to always run (even when the RPi rebooted):
+- docker run -d *--restart=always* --device=/dev/snd:/dev/snd --net=host svanscho/raspotify
