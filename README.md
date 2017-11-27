@@ -6,5 +6,5 @@ The process run is [librespot](https://github.com/plietar/librespot), an open so
 This docker container image leverages the work from [David Cooper](https://dtcooper.github.io/raspotify).
 
 ### Examples
-docker run -d --device=/dev/snd:/dev/snd --net=host svanscho/raspotify
-docker run -d --device=/dev/snd:/dev/snd --net=host -e SPOTIFY_NAME=docker-spotify svanscho/raspotify
+- docker run -d --device=/dev/snd:/dev/snd --net=host svanscho/raspotify
+- docker run -d --device=/dev/snd:/dev/snd --net=host -e SPOTIFY_NAME=docker-spotify svanscho/raspotify
