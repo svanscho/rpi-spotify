@@ -6,7 +6,7 @@ The process run is [librespot](https://github.com/plietar/librespot), an open so
 This docker container image leverages the work from [David Cooper](https://dtcooper.github.io/raspotify).
 
 ### Screenshots
-![Raspotify in action](screenshot.png?raw=true | height=150)
+<img src="screenshot.png" height="150">
 
 ### Examples
 - docker run -d --device=/dev/snd:/dev/snd --net=host svanscho/raspotify
