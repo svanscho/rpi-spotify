@@ -14,11 +14,11 @@ This docker container image leverages the work from [David Cooper](https://dtcoo
 - a raspberry pi (tested on RPi2)
 - docker (install with `curl -sSL https://get.docker.com | sh`)
 ### Examples
-- `docker run -d --device=/dev/snd:/dev/snd --net=host svanscho/raspotify`
-- `docker run -d --device=/dev/snd:/dev/snd --net=host -e SPOTIFY_NAME=docker-spotify svanscho/raspotify`(you can set the name with **--SPOTIFY_NAME**)
+- `docker run -d --device=/dev/snd:/dev/snd --net=host svanscho/rpi-spotify`
+- `docker run -d --device=/dev/snd:/dev/snd --net=host -e SPOTIFY_NAME=docker-spotify svanscho/rpi-spotify`(you can set the name with **--SPOTIFY_NAME**)
 
 If you want the container to always run (even when the RPi rebooted):
-- `docker run -d --restart=always --device=/dev/snd:/dev/snd --net=host svanscho/raspotify` (mind the **--restart=always**)
+- `docker run -d --restart=always --name=rpi-spotify --device=/dev/snd:/dev/snd --net=host svanscho/rpi-spotify` (mind the **--restart=always**)
 
 
 
