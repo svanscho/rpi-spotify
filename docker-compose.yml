@@ -4,7 +4,7 @@ services:
 
   rpi-spotify:
     build: .
-    image: flaviostutz/rpi-spotify
+    image: flaviostutz/rpi-spotify:1.0.1
     network_mode: host
     environment:
       - SPOTIFY_NAME=MySpeaker

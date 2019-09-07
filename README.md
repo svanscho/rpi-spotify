@@ -21,7 +21,6 @@ This docker container image leverages the work from [David Cooper](https://dtcoo
 version: "3.7"
 services:
   rpi-spotify:
-    build: .
     image: flaviostutz/rpi-spotify
     network: host
     restart: always
