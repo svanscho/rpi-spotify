@@ -6,6 +6,8 @@ services:
     build: .
     image: flaviostutz/rpi-spotify
     network_mode: host
+    devices:
+      - "/dev/snd:/dev/snd"
     environment:
       - SPOTIFY_NAME=MySpeaker
-
+  
