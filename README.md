@@ -44,6 +44,16 @@ services:
 * SPOTIFY_NAME: Specifies the name of this speaker (shown in Spotify client)
 * DEVICE_NAME: Output io device to which the sound will be output. Defaults to "/dev/snd"
 
+## Development
+
+Auto build doesn't work on Docker Hub because it is a cross compilation on RPI. You have to build the image locally and push it manually
+
+```shell
+docker-compose build
+docker login 
+docker push flaviostutz/rpi-spotify
+```
+
 ## Screenshots
 
 <img src="screenshot.png" width="200" />
