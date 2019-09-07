@@ -8,5 +8,5 @@ services:
     network_mode: host
     environment:
       - SPOTIFY_NAME=MySpeaker
-      - DEVICE_NAME=/dev/snd
-  
+
+      
