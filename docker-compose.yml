@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+
+  rpi-spotify:
+    build: .
+    image: flaviostutz/rpi-spotify
+    network: host
+    environment:
+      - SPOTIFY_NAME=MySpeaker
+      - DEVICE_NAME=/dev/snd
+  
