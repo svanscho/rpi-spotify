@@ -28,6 +28,7 @@ services:
       - /dev/snd:/dev/snd
     environment:
       - SPOTIFY_NAME=MyHouse
+      - EQUALIZATION=rock
 ```
 
 * Run ```docker-compose up -d```
