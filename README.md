@@ -48,9 +48,11 @@ services:
 
 * ALSA_SLAVE_PCM: slave device as configured in alsa to which the sound will be sent to. eg. use 'plughw:0,0' for device at card 0, sub 0"
 
+* ALSA_SOUND_LEVEL: overall sound level on ALSA output. defaults to 100% so that usb sound noises are reduced because there will be needed less amplification
+
 * EQUALIZATION: an equalization profile name or a series of 10 space separated values from 0-100 (one for each equalizer bin)
   * profile names: flat, classical, club, dance, bass, treble, live, party, pop, rock, techno
-  * bins example: "82 79 70 70 70 70 70 72 80 90"
+  * bins example: "90 87 87 82 80 80 82 83 91 95"
   * if you wish to interactively test the best equalization parameters, execute ```docker-compose exec rpi-spotify alsamixer -D equal```. On the next screen play with each equalization params, get the desired bin values and set this ENV parameter accordingly as in the example above
 
 ## Development

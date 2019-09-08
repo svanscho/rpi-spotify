@@ -42,6 +42,11 @@ if [ "$EQUALIZATION" != "" ]; then
   /equalizer.sh "$EQUALIZATION"
 fi
 
+if [ "$ALSA_SOUND_LEVEL" != "" ]; then
+  echo "Applying sound level to $ALSA_SOUND_LEVEL"
+  amixer set PCM "$ALSA_SOUND_LEVEL"
+fi
+
 echo "Starting Raspotify..."
 /usr/bin/librespot $VERB --name "$SPOTIFY_NAME" $BACKEND $DEVICE --bitrate 320 --disable-audio-cache --enable-volume-normalisation
 
