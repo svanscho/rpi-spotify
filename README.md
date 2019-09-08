@@ -18,15 +18,16 @@ This docker container image leverages the work from [David Cooper](https://dtcoo
 * Create file docker-compose.yml
 
 ```yml
-version: "3.7"
+version: "3.3"
 services:
   rpi-spotify:
     image: flaviostutz/rpi-spotify
-    network: host
+    network_mode: host
     restart: always
+    devices:
+      - /dev/snd:/dev/snd
     environment:
-      - SPOTIFY_NAME=MySpeaker
-      - DEVICE_NAME=/dev/snd  
+      - SPOTIFY_NAME=MyHouse
 ```
 
 * Run ```docker-compose up -d```
@@ -41,7 +42,12 @@ services:
 ## ENVs
 
 * SPOTIFY_NAME: Specifies the name of this speaker (shown in Spotify client)
-* DEVICE_NAME: Output io device to which the sound will be output. Defaults to "/dev/snd"
+* DEVICE_NAME: PCM output io device to which the sound will be output using ALSA. Defaults to 'equal' so that you can configure alsa equalization. In this case, configure the target hw using "ALSA_SLAVE_PCM". If empty, will try to get the first available device. If defined to a hardware (eg. "hw:0,0"), equalization won't take place.
+* ALSA_SLAVE_PCM: slave device as configured in alsa to which the sound will be sent to. eg. use 'plughw:0,0' for device at card 0, sub 0"
+* EQUALIZATION: an equalization profile name or a series of 10 space separated values from 0-100 (one for each equalizer bin)
+  * profile names: flat, classical, club, dance, bass, treble, live, party, pop, rock, techno
+  * bins example: "82 79 70 70 70 70 70 72 80 90"
+  * if you wish to interactively test the best equalization parameters, execute ```docker-compose exec rpi-spotify alsamixer -D equal```. On the next screen play with each equalization params, get the desired bin values and set this ENV parameter accordingly
 
 ## Development
 
@@ -49,7 +55,7 @@ Auto build doesn't work on Docker Hub because it is a cross compilation on RPI. 
 
 ```shell
 docker-compose build
-docker login 
+docker login
 docker push flaviostutz/rpi-spotify
 ```
 
