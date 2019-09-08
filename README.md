@@ -1,11 +1,12 @@
+[![](https://images.microbadger.com/badges/version/flaviostutz/rpi-spotify.svg)](https://microbadger.com/images/flaviostutz/rpi-spotify "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/flaviostutz/rpi-spotify.svg)](https://microbadger.com/images/flaviostutz/rpi-spotify "Get your own image badge on microbadger.com")
+
 You can use this container to create a Spotify Speaker at your home, but you must have a Spotify Premium account.
 
 The process run is [librespot](https://github.com/plietar/librespot), an open source client library for Spotify.
 This docker container image leverages the work from [David Cooper](https://dtcooper.github.io/raspotify).
 
 For more info on configuring your Raspberry Pi for this to work, go to https://github.com/flaviostutz/ambience-sound
-
-[Dockerhub](https://hub.docker.com/r/flaviostutz/rpi-spotify/): [![](https://images.microbadger.com/badges/version/svanscho/rpi-spotify.svg)](https://microbadger.com/images/svanscho/rpi-spotify "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/svanscho/rpi-spotify.svg)](https://microbadger.com/images/svanscho/rpi-spotify "Get your own image badge on microbadger.com") 
 
 ## Prerequisites
 
