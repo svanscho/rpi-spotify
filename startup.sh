@@ -33,8 +33,8 @@ if [ "$DEVICE_NAME" == "equal" ]; then
 fi
 
 echo "/etc/asound.conf"
-envsubst < /etc/asound.conf > /etc/asound.conf
-echo /etc/asound.conf
+envsubst < /asound.conf > /etc/asound.conf
+cat /etc/asound.conf
 echo ''
 
 if [ "$EQUALIZATION" != "" ]; then
@@ -42,10 +42,20 @@ if [ "$EQUALIZATION" != "" ]; then
   /equalizer.sh "$EQUALIZATION"
 fi
 
+set +e
 if [ "$ALSA_SOUND_LEVEL" != "" ]; then
   echo "Applying sound level to $ALSA_SOUND_LEVEL"
-  amixer set PCM "$ALSA_SOUND_LEVEL"
+  #TODO: enhance this logic
+  amixer cset numid=1 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=2 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=3 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=4 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=5 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=6 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=7 "$ALSA_SOUND_LEVEL"
+  amixer cset numid=8 "$ALSA_SOUND_LEVEL"
 fi
+set -e
 
 echo "Starting Raspotify..."
 /usr/bin/librespot $VERB --name "$SPOTIFY_NAME" $BACKEND $DEVICE --bitrate 320 --disable-audio-cache --enable-volume-normalisation

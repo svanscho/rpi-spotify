@@ -12,8 +12,8 @@ ENV ALSA_SOUND_LEVEL '100%'
 ENV VERBOSE 'false'
 ENV EQUALIZATION ''
 
-ADD /asound.conf /etc/
+ADD /asound.conf /
 ADD /equalizer.sh /
 
-ADD startup.sh /
+ADD /startup.sh /
 CMD /startup.sh
