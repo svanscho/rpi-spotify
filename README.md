@@ -1,4 +1,6 @@
-<img src="https://img.shields.io/docker/automated/flaviostutz/rpi-spotify"/>
+# rpi-spotify
+[<img src="https://img.shields.io/docker/pulls/flaviostutz/rpi-spotify"/>](https://hub.docker.com/r/flaviostutz/rpi-spotify)
+[<img src="https://img.shields.io/docker/automated/flaviostutz/rpi-spotify"/>](https://hub.docker.com/r/flaviostutz/rpi-spotify)
 
 [![](https://images.microbadger.com/badges/version/flaviostutz/rpi-spotify.svg)](https://microbadger.com/images/flaviostutz/rpi-spotify "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/flaviostutz/rpi-spotify.svg)](https://microbadger.com/images/flaviostutz/rpi-spotify "Get your own image badge on microbadger.com")
