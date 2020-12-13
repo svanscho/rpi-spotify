@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian
+FROM balenalib/rpi-raspbian:buster-20201118
 
 RUN apt-get update
 RUN apt-get install alsa-utils libasound2-plugin-equal gettext -y
