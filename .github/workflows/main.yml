@@ -32,7 +32,7 @@ jobs:
       - name: Run Buildx
         run: |
           docker buildx build \
-            --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6 \
+            --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 \
             -t flaviostutz/rpi-spotify:${GITHUB_SHA::7} \
             .
             
@@ -43,7 +43,7 @@ jobs:
       - name: Run Buildx
         run: |
           docker buildx build \
-            --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6 \
+            --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 \
             -t flaviostutz/rpi-spotify:${GITHUB_SHA::7} \
             . \
             --push
