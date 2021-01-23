@@ -2,7 +2,7 @@ FROM balenalib/rpi-raspbian:buster-20201118
 
 #alsa install
 RUN apt-get update && \
-    apt-get install alsa-utils libasound2-plugin-equal gettext -y
+    apt-get install alsa-utils pulseaudio libpulse-dev libasound2-plugin-equal gettext -y
 
 #raspotify install
 RUN apt-get update && \
