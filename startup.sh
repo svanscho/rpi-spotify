@@ -33,7 +33,6 @@ if [ "$DEVICE_NAME" == "equal" ]; then
 fi
 
 echo "/etc/asound.conf"
-envsubst < /asound.conf > /etc/asound.conf
 cat /etc/asound.conf
 echo ''
 

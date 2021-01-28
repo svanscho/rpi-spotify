@@ -12,6 +12,8 @@ RUN apt-get update && \
     apt-get update && \
     apt-get -y install raspotify 
 
+RUN groupadd -g 9003 spotify && useradd -u 9003 -r -g spotify spotify && usermod -a -G audio spotify
+
 ENV SPOTIFY_NAME RaspotifySpeaker
 ENV BACKEND_NAME 'alsa'
 ENV DEVICE_NAME 'equal'
@@ -20,8 +22,8 @@ ENV ALSA_SOUND_LEVEL '100%'
 ENV VERBOSE 'false'
 ENV EQUALIZATION ''
 
-ADD /asound.conf /
-ADD /equalizer.sh /
+ADD /asound.conf /etc/asound.conf
+ADD --chown=spotify:spotify /equalizer.sh /
 
-ADD /startup.sh /
+ADD --chown=spotify:spotify /startup.sh /
 CMD /startup.sh
