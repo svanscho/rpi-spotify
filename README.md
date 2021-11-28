@@ -1,9 +1,6 @@
 # rpi-spotify
-[<img src="https://img.shields.io/docker/pulls/flaviostutz/rpi-spotify"/>](https://hub.docker.com/r/flaviostutz/rpi-spotify)
-[<img src="https://img.shields.io/docker/automated/flaviostutz/rpi-spotify"/>](https://hub.docker.com/r/flaviostutz/rpi-spotify)
-
-[![](https://images.microbadger.com/badges/version/flaviostutz/rpi-spotify.svg)](https://microbadger.com/images/flaviostutz/rpi-spotify "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/flaviostutz/rpi-spotify.svg)](https://microbadger.com/images/flaviostutz/rpi-spotify "Get your own image badge on microbadger.com")
+[<img src="https://img.shields.io/docker/pulls/rimago/rpi-spotify"/>](https://hub.docker.com/r/rimago/rpi-spotify)
+[<img src="https://img.shields.io/docker/automated/rimago/rpi-spotify"/>](https://hub.docker.com/r/rimago/rpi-spotify)
 
 You can use this container to create a Spotify Speaker at your home, but you must have a Spotify Premium account.
 
@@ -14,7 +11,7 @@ For more info on configuring your Raspberry Pi for this to work, go to https://g
 
 ## Prerequisites
 
-* A Raspberry Pi (tested on RPi2/3)
+* A Raspberry Pi (tested on RPi2/3/4)
 * Docker
 * docker-compose
 
@@ -26,7 +23,7 @@ For more info on configuring your Raspberry Pi for this to work, go to https://g
 version: "3.3"
 services:
   rpi-spotify:
-    image: flaviostutz/rpi-spotify
+    image: rimago/rpi-spotify
     network_mode: host
     restart: always
     devices:
@@ -41,7 +38,7 @@ services:
 version: "3.3"
 services:
   rpi-spotify:
-    image: flaviostutz/rpi-spotify
+    image: rimago/rpi-spotify
     network_mode: host
     restart: always
     environment:
@@ -85,7 +82,7 @@ Auto build doesn't work on Docker Hub because it is a cross compilation on RPI. 
 ```shell
 docker-compose build
 docker login
-docker push flaviostutz/rpi-spotify
+docker push rimago/rpi-spotify
 ```
 
 ## Screenshots

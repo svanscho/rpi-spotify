@@ -1,4 +1,4 @@
-FROM balenalib/rpi-raspbian:buster-20201118
+FROM balenalib/rpi-raspbian:buster-20211125
 
 #alsa install
 RUN apt-get update && \
