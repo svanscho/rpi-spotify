@@ -1,10 +1,10 @@
-FROM balenalib/rpi-raspbian:buster-20211125
+FROM balenalib/rpi-raspbian:bullseye-20220606
 
-#alsa install
+# alsa install
 RUN apt-get update && \
-    apt-get install alsa-utils pulseaudio libpulse-dev libasound2-plugin-equal gettext -y
+    apt-get install alsa-utils libasound2 pulseaudio libpulse-dev libasound2-plugin-equal gettext -y
 
-#raspotify install
+# raspotify install
 RUN apt-get update && \
     apt-get -y install curl apt-transport-https && \
     curl -sSLk https://dtcooper.github.io/raspotify/key.asc | apt-key add -v - && \
