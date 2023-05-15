@@ -5,13 +5,21 @@ set -e
 
 echo "Preparing container..."
 
+echo "DISABLE_AUDIO_CACHE=$DISABLE_AUDIO_CACHE"
 echo "SPOTIFY_NAME=$SPOTIFY_NAME"
 echo "BACKEND_NAME=$BACKEND_NAME"
 echo "DEVICE_NAME=$DEVICE_NAME"
+echo "INITIAL_VOLUME=$INITIAL_VOLUME"
 
 DEVICE=""
 BACKEND=""
 VERB=""
+INIT_VOL=""
+DISABLE_ACACHE=""
+
+if [ "$DISABLE_AUDIO_CACHE" == "true" ]; then
+  DISABLE_ACACHE="--disable-audio-cache"
+fi
 
 if [ "$VERBOSE" == "true" ]; then
   VERB="-v"
@@ -30,6 +38,10 @@ if [ "$DEVICE_NAME" == "equal" ]; then
     echo "ALSA_SLAVE_PCM must be defined. eg. use 'plughw:0,0' for device at card 0, sub 0"
     exit 1
   fi
+fi
+
+if [ "$INITIAL_VOLUME" != "" ]; then
+  INIT_VOL="--initial-volume $INITIAL_VOLUME"
 fi
 
 echo "/etc/asound.conf"
@@ -57,5 +69,5 @@ fi
 set -e
 
 echo "Starting Raspotify..."
-librespot $VERB --name "$SPOTIFY_NAME" $BACKEND $DEVICE --bitrate 320 --disable-audio-cache --enable-volume-normalisation
+librespot $VERB --name "$SPOTIFY_NAME" $BACKEND $DEVICE --bitrate 320 $DISABLE_ACACHE --enable-volume-normalisation $INIT_VOL
 
