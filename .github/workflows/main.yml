@@ -1,0 +1,49 @@
+name: buildx
+
+on:
+  pull_request:
+    branches: master
+  push:
+    branches: master
+    tags:
+
+jobs:
+  buildx:
+    runs-on: ubuntu-latest
+    steps:
+      # Get the repositery's code
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v2
+        with: # in production, fix the version of your dependencies
+          buildx-version: latest
+          skip-cache: false
+          qemu-version: latest
+
+
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+      
+      # Build the images, without pushing
+      - name: Run Buildx
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 \
+            -t flaviostutz/rpi-spotify:${GITHUB_SHA::7} \
+            .
+            
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USER }}" --password-stdin
+
+      # Reusing the cache, push the images
+      - name: Run Buildx
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 \
+            -t flaviostutz/rpi-spotify:${GITHUB_SHA::7} \
+            . \
+            --push
